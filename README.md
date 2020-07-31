@@ -7,6 +7,37 @@ Component for displaying horizontally scrolled picker for React Native
 
 ![@vseslav/react-native-horizontal-picker](https://github.com/vdor/react-native-horizontal-picker/raw/master/example.gif)
 
+## Usage
+
+```bash
+$ npm install --save @vseslav/react-native-horizontal-picker
+```
+
+```javascript
+import HorizontalPicker from '@vseslav/react-native-horizontal-picker';
+
+
+const Items = Array.from(Array(100).keys());
+
+const rednerItem = (item, index) => (
+  <View style={[styles.item], { width: 80 }}>
+    <Text style={styles.itemText}>
+      { item }
+    </Text>
+  </View>
+);
+
+export default function MyPicker() {
+  return (
+    <HorizontalPicker
+      data={Items}
+      renderItem={rednerItem}
+      itemWidth={80}
+    />
+  );
+}
+```
+
 ## Props
 
 ### Required

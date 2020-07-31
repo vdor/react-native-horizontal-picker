@@ -5,7 +5,7 @@ Component for displaying horizontally scrolled picker for React Native
 
 ## Example
 
-![@vseslav/react-native-horizontal-picker](example.gif))
+![@vseslav/react-native-horizontal-picker](https://github.com/vdor/react-native-horizontal-picker/raw/master/example.gif)
 
 ## Props
 
@@ -18,6 +18,7 @@ Prop | Description | Type | Default
 **itemWidth** | Width in pixels of horizontal pickers's items, **must be the same for all of them** | Number | **Required**
 
 
+### Not Required
 Prop | Description | Type | Default
 ------ | ------ | ------ | ------
 snapTimeout | Number of millisecoonds. When user will drag to scroll, after this time picker will automatically scroll to neartest item | Number | `500`

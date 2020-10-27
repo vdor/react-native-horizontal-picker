@@ -156,7 +156,7 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
       })
     }
   }
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: HorizontalPickerProps) {
     // You don't have to do this check first, but it can help prevent an unneeded render
     if (nextProps.selected && nextProps.selected !== this.props.selected) {
       this.scrollToPosition(nextProps.selected)

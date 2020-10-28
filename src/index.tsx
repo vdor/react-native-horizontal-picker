@@ -8,6 +8,7 @@ import {
   NativeSyntheticEvent,
   NativeScrollEvent,
   Platform,
+  InteractionManager,
 } from 'react-native';
 
 
@@ -16,12 +17,14 @@ export interface HorizontalPickerProps extends ScrollViewProps {
   renderItem: (item: any, index: number) => ReactNode,
   itemWidth: number,
   snapTimeout?: number
-  onChange?: (position: number) => void
+  onChange?: (position: number) => void,
+  selected?: number
 };
 
 
 export type HorizontalPickerState = {
-  scrollViewWidth: number
+  scrollViewWidth: number,
+  opacity: number,
 };
 
 
@@ -46,6 +49,7 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
 
     this.state = {
       scrollViewWidth: 0,
+      opacity: props.selected ? 0 : 1
     };
   }
 
@@ -109,13 +113,17 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     }
   }
 
-  private scrollToPosition = (position: number) => {
-    const { itemWidth } = this.props;
+  private scrollToPosition = (position: number, animated: boolean = true) => {
+    const { itemWidth, onChange } = this.props;
     const x = position * itemWidth;
     this.ignoreNextScroll = true;
 
     if (this.refScrollView.current != null) {
-      this.refScrollView.current.scrollTo({ x, y: 0, animated: true });
+      this.refScrollView.current.scrollTo({ x, y: 0, animated });
+    }
+
+    if (onChange != null) {
+      onChange(position);
     }
   }
 
@@ -139,14 +147,28 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
       }
     }, snapTimeout);
   }
-
+  componentDidMount(){
+    const { selected } = this.props;
+    if (selected) {
+      InteractionManager.runAfterInteractions(() => {
+        this.scrollToPosition(selected, false);
+        this.setState({opacity: 1})
+      })
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    // You don't have to do this check first, but it can help prevent an unneeded render
+    if (nextProps.selected && nextProps.selected !== this.props.selected) {
+      this.scrollToPosition(nextProps.selected)
+    }
+  }
   render() {
     const {
       data,
       renderItem,
       ...props
     } = this.props;
-
+    const { opacity } = this.state
     return (
       <ScrollView
         horizontal
@@ -162,6 +184,7 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
         onMomentumScrollBegin={this.onMomentumScrollBegin}
         onMomentumScrollEnd={this.onMomentumScrollEnd}
         {...props}
+        style={[{opacity: opacity}, props.style]}
       >
         {
           data.map((item: any, index: number) => (

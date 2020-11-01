@@ -188,7 +188,7 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
       >
         {
           data.map((item: any, index: number) => (
-            <TouchableWithoutFeedback onPress={() => this.scrollToPosition(index)} key={index}>
+            <TouchableWithoutFeedback onPress={() => this.scrollToPosition(index, false)} key={index}>
               <View>
                 {
                   renderItem(item, index)

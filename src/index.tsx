@@ -117,6 +117,10 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     if (this.refScrollView.current != null) {
       this.refScrollView.current.scrollTo({ x, y: 0, animated: true });
     }
+    
+    if (onChange != null) {
+      onChange(position);
+    }
   }
 
   private cancelDelayedSnap = () => {

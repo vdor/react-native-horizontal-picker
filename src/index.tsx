@@ -119,7 +119,13 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     }
     
     if (onChange != null) {
-      onChange(position);
+      if (position < 1) {
+        onChange(0);
+      } else if (position > this.props.data.length) {
+        onChange(this.props.data.length - 1);
+      } else {
+        onChange(position);
+      }
     }
   }
 

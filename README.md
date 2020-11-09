@@ -54,4 +54,4 @@ Prop | Description | Type | Default
 ------ | ------ | ------ | ------
 snapTimeout | Number of millisecoonds. When user will drag to scroll, after this time picker will automatically scroll to neartest item | Number | `500`
 onChange | Callback called when selected item is changed  | (position: number) => voiod | null
-selected | Selected item | Number | null
+selectedValue | Selected item | Number | null

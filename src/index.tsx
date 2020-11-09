@@ -123,6 +123,16 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     if (onChange != null) {
       onChange(position);
     }
+    
+    if (onChange != null) {
+      if (position < 1) {
+        onChange(0);
+      } else if (position > this.props.data.length) {
+        onChange(this.props.data.length - 1);
+      } else {
+        onChange(position);
+      }
+    }
   }
 
   private animatedScrollToPosition = (position: number) => this.scrollToPosition(position, true);
@@ -135,7 +145,6 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     const snapTimeout = timeout || this.props.snapTimeout || this.defaultSnapTimeout;
     const {
       itemWidth,
-      onChange,
     } = this.props;
     this.cancelDelayedSnap();
     this.timeoutDelayedSnap = setTimeout(() => {

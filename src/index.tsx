@@ -157,7 +157,9 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
         }
 
         const x = defaultIndex * itemWidth;
-        this.refScrollView.current.scrollTo({ x, y: 0, animated: false });
+        setTimeout(() => {
+          this.refScrollView.current.scrollTo({ x, y: 0, animated: false });
+        }, 100);
     }
   }
   

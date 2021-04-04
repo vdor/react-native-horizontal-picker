@@ -1,6 +1,6 @@
 {
   "name": "@vseslav/react-native-horizontal-picker",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Horizontally scrolling picker component for React Native",
   "react-native": "src/index.tsx",
   "types": "lib/typescript/index.d.ts",

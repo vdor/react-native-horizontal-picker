@@ -1297,8 +1297,10 @@
     lodash "^4.5.0"
     prop-types "^15.6.1"
 
-"@vseslav/react-native-horizontal-picker@../":
-  version "0.0.3"
+"@vseslav/react-native-horizontal-picker@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@vseslav/react-native-horizontal-picker/-/react-native-horizontal-picker-0.1.0.tgz#a0815631b94b17362736e50f7c38f91935b7eddf"
+  integrity sha512-IDj3UFZcakpSDQBZGEAgAegRO5jwdetrGViyTZxU40fJdoVzy6qkfbEKmP+GSbs+d0MdnmTg18aQtEs+8gP0iQ==
 
 abort-controller@^3.0.0:
   version "3.0.0"

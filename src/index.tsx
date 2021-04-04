@@ -15,7 +15,7 @@ export interface HorizontalPickerProps extends ScrollViewProps {
   data: any[],
   renderItem: (item: any, index: number) => ReactNode,
   itemWidth: number,
-  defaultValue: number,
+  defaultIndex?: number,
   snapTimeout?: number
   onChange?: (position: number) => void
 };
@@ -51,7 +51,7 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
   }
 
   private onLayoutScrollView = (e: LayoutChangeEvent) => {
-    this.scrollToDefaultValue();
+    this.scrollToDefaultIndex();
     const { width } = e.nativeEvent.layout;
     this.setState(() => ({ scrollViewWidth: width }));
     this.paddingSide = width / 2 - this.props.itemWidth / 2;
@@ -111,7 +111,7 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     }
   }
 
-  private scrollToPosition = (position: number) => {
+  public scrollToPosition = (position: number) => {
     const { itemWidth, onChange } = this.props;
     const x = position * itemWidth;
     this.ignoreNextScroll = true;
@@ -147,9 +147,18 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     }, snapTimeout);
   }
 
-  scrollToDefaultValue = () => {
-    const x = this.props.defaultValue * this.props.itemWidth;
-    this.refScrollView.current.scrollTo({ x, y: 0, animated: false });
+  scrollToDefaultIndex = () => {
+    if (this.refScrollView.current != null && this.props.defaultIndex != null) {
+        const {defaultIndex, itemWidth, data} = this.props;
+
+        if (defaultIndex >= data.length) {
+          console.warn("@vseslav/react-native-horizontal-picker: 'defaultIndex' is out of range of the array 'data'");
+          return;
+        }
+
+        const x = defaultIndex * itemWidth;
+        this.refScrollView.current.scrollTo({ x, y: 0, animated: false });
+    }
   }
   
   render() {

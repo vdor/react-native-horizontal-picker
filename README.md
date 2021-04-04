@@ -52,5 +52,6 @@ Prop | Description | Type | Default
 ### Not Required
 Prop | Description | Type | Default
 ------ | ------ | ------ | ------
-snapTimeout | Number of millisecoonds. When user will drag to scroll, after this time picker will automatically scroll to neartest item | Number | `500`
+snapTimeout | Number of millisecoonds. When user will drag to scroll, after this time picker will automatically scroll to nearest item | Number | `500`
+defaultIndex | Default index of item. Must be `defaultIndex < data.length && defaultIndex > 0 | null`
 onChange | Callback called when selected item is changed  | (position: number) => voiod | null

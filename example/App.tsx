@@ -29,6 +29,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <HorizontalPicker
+        defaultIndex={10}
         data={Items}
         renderItem={rednerItem}
         itemWidth={80}

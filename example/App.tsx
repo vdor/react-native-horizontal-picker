@@ -12,7 +12,7 @@ import HorizontalPicker from '@vseslav/react-native-horizontal-picker/src';
 const LN_SIDE_COLOR = '#0B5FA5AA';
 const LN_CENTER_COLOR = '#0B5FA500';
 
-const Items = Array.from(Array(100).keys());
+const Items = Array.from(Array(20).keys());
 
 const rednerItem = (item: number, index: number) => (
   <View style={styles.item}>
@@ -29,7 +29,8 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <HorizontalPicker
-        defaultIndex={10}
+        defaultIndex={18}
+        animatedScrollToDefaultIndex
         data={Items}
         renderItem={rednerItem}
         itemWidth={80}

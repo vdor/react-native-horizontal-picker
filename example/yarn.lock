@@ -1297,10 +1297,8 @@
     lodash "^4.5.0"
     prop-types "^15.6.1"
 
-"@vseslav/react-native-horizontal-picker@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@vseslav/react-native-horizontal-picker/-/react-native-horizontal-picker-0.1.0.tgz#a0815631b94b17362736e50f7c38f91935b7eddf"
-  integrity sha512-IDj3UFZcakpSDQBZGEAgAegRO5jwdetrGViyTZxU40fJdoVzy6qkfbEKmP+GSbs+d0MdnmTg18aQtEs+8gP0iQ==
+"@vseslav/react-native-horizontal-picker@../":
+  version "0.1.1"
 
 abort-controller@^3.0.0:
   version "3.0.0"
@@ -5144,9 +5142,9 @@ typescript@~3.5.2:
   integrity sha512-ACzBtm/PhXBDId6a6sDJfroT2pOWt/oOnk4/dElG5G33ZL776N3Y6/6bKZJBFpd+b05F3Ct9qDjMeJmRWtE2/g==
 
 ua-parser-js@^0.7.18:
-  version "0.7.21"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
-  integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
 
 uglify-es@^3.1.9:
   version "3.3.9"

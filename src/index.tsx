@@ -166,6 +166,12 @@ export default class HorizontalPicker extends PureComponent<HorizontalPickerProp
     const {
       data,
       renderItem,
+      onScroll,
+      onLayout,
+      onScrollBeginDrag,
+      onScrollEndDrag,
+      onMomentumScrollBegin,
+      onMomentumScrollEnd,
       ...props
     } = this.props;
 

@@ -19,7 +19,7 @@ import HorizontalPicker from '@vseslav/react-native-horizontal-picker';
 
 const Items = Array.from(Array(100).keys());
 
-const rednerItem = (item, index) => (
+const renderItem = (item, index) => (
   <View style={[styles.item], { width: 80 }}>
     <Text style={styles.itemText}>
       { item }
@@ -31,7 +31,7 @@ export default function MyPicker() {
   return (
     <HorizontalPicker
       data={Items}
-      renderItem={rednerItem}
+      renderItem={renderItem}
       itemWidth={80}
     />
   );

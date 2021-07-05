@@ -14,7 +14,7 @@ const LN_CENTER_COLOR = '#0B5FA500';
 
 const Items = Array.from(Array(20).keys());
 
-const rednerItem = (item: number, index: number) => (
+const renderItem = (item: number, index: number) => (
   <View style={styles.item}>
     <Text style={styles.itemText}>
       {
@@ -32,7 +32,7 @@ export default function App() {
         defaultIndex={18}
         animatedScrollToDefaultIndex
         data={Items}
-        renderItem={rednerItem}
+        renderItem={renderItem}
         itemWidth={80}
       />
       <LinearGradient
